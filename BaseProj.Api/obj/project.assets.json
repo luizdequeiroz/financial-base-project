@@ -13266,8 +13266,8 @@
     },
     "BaseProj.Entry/1.0.0": {
       "type": "project",
-      "path": "../BaseProj.Entry/BaseProj.Entry.csproj",
-      "msbuildProject": "../BaseProj.Entry/BaseProj.Entry.csproj"
+      "path": "../BaseProj.Modules/BaseProj.Entry/BaseProj.Entry.csproj",
+      "msbuildProject": "../BaseProj.Modules/BaseProj.Entry/BaseProj.Entry.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -13316,8 +13316,8 @@
             "C:\\Users\\1007787\\source\\repos\\BaseProj\\BaseProj.Core\\BaseProj.Core.csproj": {
               "projectPath": "C:\\Users\\1007787\\source\\repos\\BaseProj\\BaseProj.Core\\BaseProj.Core.csproj"
             },
-            "C:\\Users\\1007787\\source\\repos\\BaseProj\\BaseProj.Entry\\BaseProj.Entry.csproj": {
-              "projectPath": "C:\\Users\\1007787\\source\\repos\\BaseProj\\BaseProj.Entry\\BaseProj.Entry.csproj"
+            "C:\\Users\\1007787\\source\\repos\\BaseProj\\BaseProj.Modules\\BaseProj.Entry\\BaseProj.Entry.csproj": {
+              "projectPath": "C:\\Users\\1007787\\source\\repos\\BaseProj\\BaseProj.Modules\\BaseProj.Entry\\BaseProj.Entry.csproj"
             }
           }
         }

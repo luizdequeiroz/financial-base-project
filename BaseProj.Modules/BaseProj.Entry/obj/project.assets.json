@@ -12549,8 +12549,8 @@
     },
     "BaseProj.Core/1.0.0": {
       "type": "project",
-      "path": "../BaseProj.Core/BaseProj.Core.csproj",
-      "msbuildProject": "../BaseProj.Core/BaseProj.Core.csproj"
+      "path": "../../BaseProj.Core/BaseProj.Core.csproj",
+      "msbuildProject": "../../BaseProj.Core/BaseProj.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -12566,11 +12566,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\1007787\\source\\repos\\BaseProj\\BaseProj.Entry\\BaseProj.Entry.csproj",
+      "projectUniqueName": "C:\\Users\\1007787\\source\\repos\\BaseProj\\BaseProj.Modules\\BaseProj.Entry\\BaseProj.Entry.csproj",
       "projectName": "BaseProj.Entry",
-      "projectPath": "C:\\Users\\1007787\\source\\repos\\BaseProj\\BaseProj.Entry\\BaseProj.Entry.csproj",
+      "projectPath": "C:\\Users\\1007787\\source\\repos\\BaseProj\\BaseProj.Modules\\BaseProj.Entry\\BaseProj.Entry.csproj",
       "packagesPath": "C:\\Users\\1007787\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\1007787\\source\\repos\\BaseProj\\BaseProj.Entry\\obj\\",
+      "outputPath": "C:\\Users\\1007787\\source\\repos\\BaseProj\\BaseProj.Modules\\BaseProj.Entry\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
