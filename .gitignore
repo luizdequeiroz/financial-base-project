@@ -1,0 +1,10 @@
+.vs/
+
+BaseProj.Api/bin/
+BaseProj.Api/obj/
+
+BaseProj.Core/bin/
+BaseProj.Core/obj/
+
+BaseProj.Module/BaseProj.Entry/bin/
+BaseProj.Module/BaseProj.Entry/obj/
