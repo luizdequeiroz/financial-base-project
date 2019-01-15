@@ -1,0 +1,8 @@
+c:\users\1007787\source\repos\BaseProj\BaseProj\bin\Debug\netcoreapp2.0\BaseProj.deps.json
+c:\users\1007787\source\repos\BaseProj\BaseProj\bin\Debug\netcoreapp2.0\BaseProj.runtimeconfig.json
+c:\users\1007787\source\repos\BaseProj\BaseProj\bin\Debug\netcoreapp2.0\BaseProj.runtimeconfig.dev.json
+c:\users\1007787\source\repos\BaseProj\BaseProj\bin\Debug\netcoreapp2.0\BaseProj.dll
+c:\users\1007787\source\repos\BaseProj\BaseProj\obj\Debug\netcoreapp2.0\BaseProj.csproj.CoreCompileInputs.cache
+c:\users\1007787\source\repos\BaseProj\BaseProj\obj\Debug\netcoreapp2.0\BaseProj.AssemblyInfoInputs.cache
+c:\users\1007787\source\repos\BaseProj\BaseProj\obj\Debug\netcoreapp2.0\BaseProj.AssemblyInfo.cs
+c:\users\1007787\source\repos\BaseProj\BaseProj\obj\Debug\netcoreapp2.0\BaseProj.csprojResolveAssemblyReference.cache

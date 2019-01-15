@@ -1,0 +1,101 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": "9e5900730f448a47cf4f78a1a2d2939ef3d912d9"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "BaseProj.Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.2.0-preview3-27014-02"
+        },
+        "runtime": {
+          "BaseProj.Core.dll": {}
+        }
+      },
+      "Microsoft.NETCore.App/2.2.0-preview3-27014-02": {
+        "dependencies": {
+          "Microsoft.NETCore.DotNetHostPolicy": "2.2.0-preview3-27014-02",
+          "Microsoft.NETCore.Platforms": "2.2.0-preview3-27014-02",
+          "Microsoft.NETCore.Targets": "2.0.0",
+          "NETStandard.Library": "2.0.3"
+        }
+      },
+      "Microsoft.NETCore.DotNetAppHost/2.2.0-preview3-27014-02": {},
+      "Microsoft.NETCore.DotNetHostPolicy/2.2.0-preview3-27014-02": {
+        "dependencies": {
+          "Microsoft.NETCore.DotNetHostResolver": "2.2.0-preview3-27014-02"
+        }
+      },
+      "Microsoft.NETCore.DotNetHostResolver/2.2.0-preview3-27014-02": {
+        "dependencies": {
+          "Microsoft.NETCore.DotNetAppHost": "2.2.0-preview3-27014-02"
+        }
+      },
+      "Microsoft.NETCore.Platforms/2.2.0-preview3-27014-02": {},
+      "Microsoft.NETCore.Targets/2.0.0": {},
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.2.0-preview3-27014-02"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BaseProj.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.NETCore.App/2.2.0-preview3-27014-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gfJ+hoCtgmWuGSSRmJdzcGNXn2Vy8RThAIe7Qg/TGI0ecCCA0qnle9QFX6gOOcViEfsRwBO5qHSoAkaxt1cPHQ==",
+      "path": "microsoft.netcore.app/2.2.0-preview3-27014-02",
+      "hashPath": "microsoft.netcore.app.2.2.0-preview3-27014-02.nupkg.sha512"
+    },
+    "Microsoft.NETCore.DotNetAppHost/2.2.0-preview3-27014-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GQfi+4bb7xjtu8hveT4RthQ//S0mZihNmIu5VrrShNrG6HbipizQrdAR/A3ivNLaV1NuLmfbjjyucCjpS5ghHA==",
+      "path": "microsoft.netcore.dotnetapphost/2.2.0-preview3-27014-02",
+      "hashPath": "microsoft.netcore.dotnetapphost.2.2.0-preview3-27014-02.nupkg.sha512"
+    },
+    "Microsoft.NETCore.DotNetHostPolicy/2.2.0-preview3-27014-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JP4Ha83NqmjZx30+4BWCOcEztYo3wQiPsBs/hGRdvV8ZAi7w4kLbHSYPExIAG7uvhuFyByCcAC2hbQMnXK8ikw==",
+      "path": "microsoft.netcore.dotnethostpolicy/2.2.0-preview3-27014-02",
+      "hashPath": "microsoft.netcore.dotnethostpolicy.2.2.0-preview3-27014-02.nupkg.sha512"
+    },
+    "Microsoft.NETCore.DotNetHostResolver/2.2.0-preview3-27014-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mXta9BkAb6n6P+NDhG4UVtz1w2WXZmwBHAyTjaSEvS9RXd2Oq3yIk3WOb0r8fdIVvL5u1cumypUi69/SRd2xAw==",
+      "path": "microsoft.netcore.dotnethostresolver/2.2.0-preview3-27014-02",
+      "hashPath": "microsoft.netcore.dotnethostresolver.2.2.0-preview3-27014-02.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/2.2.0-preview3-27014-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W9vw9Myri9p+gd6XVTsMDnSa0pKhHngUilZqozbvTEIGdCM2J9NLIMrYyx2QCdHKIqGFfyBog6q1LnLH9khrFg==",
+      "path": "microsoft.netcore.platforms/2.2.0-preview3-27014-02",
+      "hashPath": "microsoft.netcore.platforms.2.2.0-preview3-27014-02.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Targets/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-odP/tJj1z6GylFpNo7pMtbd/xQgTC3Ex2If63dRTL38bBNMwsBnJ+RceUIyHdRBC0oik/3NehYT+oECwBhIM3Q==",
+      "path": "microsoft.netcore.targets/2.0.0",
+      "hashPath": "microsoft.netcore.targets.2.0.0.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    }
+  }
+}
