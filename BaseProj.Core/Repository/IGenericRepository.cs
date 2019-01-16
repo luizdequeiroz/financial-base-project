@@ -14,8 +14,8 @@ namespace BaseProj.Core.Repository
         Task<IQueryable<Entity>> SelectWhereAsync(Expression<Func<Entity, bool>> predicate);
         Entity SelectByID(object key);
         Task<Entity> SelectByIDAsync(object key);
-        int Insert(Entity item);
-        Task<int> InsertAsync(Entity item);
+        Entity Insert(Entity item);
+        Task<Entity> InsertAsync(Entity item);
         void Update(Entity item);
         void UpdateAsync(Entity item);
         void Delete(Entity item);

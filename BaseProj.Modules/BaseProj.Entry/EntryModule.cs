@@ -23,5 +23,15 @@ namespace BaseProj.Entry
 
             return false;
         }
+
+        public async Task<User> RegisterUserAsync(User user)
+        {
+            return await repository.InsertAsync(user);
+        }
+
+        public async Task DeleteUserAsync(int id)
+        {
+            repository.DeleteAsync(new User { Id = id });
+        }
     }
 }

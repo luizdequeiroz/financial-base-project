@@ -6,7 +6,6 @@ using BaseProj.Core.Utils;
 using BaseProj.Entry;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace BaseProj.Api.Controllers
@@ -21,7 +20,7 @@ namespace BaseProj.Api.Controllers
             this.entry = entry;
         }
 
-        [HttpPost("users/login")]
+        [HttpPost("login/")]
         public async Task<Response> Login([FromBody] User user)
         {
             try
@@ -34,12 +33,43 @@ namespace BaseProj.Api.Controllers
                 }
                 else
                 {
-                    return new Error(Err.InvalidPadding, ModelState.Select(v => new
-                    {
-                        Input = v.Key,
-                        Msgs = v.Value.Errors.Select(e => e.ErrorMessage)
-                    }));
+                    return new Error(Err.InvalidPadding, ModelState.GetValidationObject());
                 }
+            }
+            catch (Exception ex)
+            {
+                return new Error(ex);
+            }
+        }
+
+        [HttpPost("users/")]
+        public async Task<Response> RegisterUser([FromBody] User user)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var userResult = await entry.RegisterUserAsync(user);
+                    return new Success(Suc.UserSuccessfullyRegistered, userResult);
+                }
+                else
+                {
+                    return new Error(Err.InvalidPadding, ModelState.GetValidationObject());
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Error(ex);
+            }
+        }
+
+        [HttpDelete("users/delete")]
+        public async Task<Response> DeleteUser(int id)
+        {
+            try
+            {
+                await entry.DeleteUserAsync(id);
+                return new Success(Suc.UserDeletedSuccessfully);
             }
             catch (Exception ex)
             {

@@ -46,18 +46,18 @@ namespace BaseProj.Core.Repository
             return await Task.Run(() => _context.Set<Entity>().Where(predicate));
         }
 
-        public int Insert(Entity item) 
+        public Entity Insert(Entity item) 
         {
             _context.Set<Entity>().Add(item);
             Commit();
-            return item.Id;
+            return item;
         }
 
-        public async Task<int> InsertAsync(Entity item) 
+        public async Task<Entity> InsertAsync(Entity item) 
         {
             await _context.Set<Entity>().AddAsync(item);
             CommitAsync();
-            return item.Id;
+            return item;
         }
 
         public void Delete(Entity item) 
