@@ -8,32 +8,28 @@ namespace BaseProj.Core
 {
     public class StartupCore : IDesignTimeDbContextFactory<BaseProjContext>
     {
-        private static string _connectionString;
-
-        private static IServiceCollection _services;
-
-        public StartupCore StartupCoreInit(string connectionString)
-        {
-            _connectionString = connectionString;
-            return this;
-        }
-
-        public StartupCore ConfigureDb(IServiceCollection services)
-        {
-            _services = services.AddDbContext<BaseProjContext>(options => options.UseSqlServer(_connectionString));
-            return this;
-        }
-
-        public IServiceCollection Inject<TInterface, TImplementation>() =>
-            _services.AddTransient(typeof(TInterface), typeof(TImplementation))
-                     .AddTransient<IGenericRepository<User>, GenericRepository<User>>();
+        public static string connectionString { get; set; }
 
         public BaseProjContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BaseProjContext>();
-            optionsBuilder.UseSqlServer(_connectionString);
+            optionsBuilder.UseSqlServer(connectionString);
 
             return new BaseProjContext(optionsBuilder.Options);
         }
+    }
+
+    public static class StartupExtension
+    {
+        public static IServiceCollection ConfigureConnection(this IServiceCollection services, string connectionString)
+        {
+            StartupCore.connectionString = connectionString;
+            return services;
+        }
+
+        public static IServiceCollection Inject<TInterface, TImplementation>(this IServiceCollection services) => 
+            services.AddDbContext<BaseProjContext>(options => options.UseSqlServer(StartupCore.connectionString))
+                    .AddTransient(typeof(TInterface), typeof(TImplementation))
+                    .AddTransient<IGenericRepository<User>, GenericRepository<User>>();
     }
 }

@@ -17,7 +17,7 @@ using SecurityKeyFromCore = BaseProj.Core.Provider.SecurityKey;
 
 namespace BaseProj.Api
 {
-    public class Startup : StartupCore
+    public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -109,9 +109,8 @@ namespace BaseProj.Api
                 c.IncludeXmlComments(xmlApplicationDocPath);
             });
 
-            StartupCoreInit(Configuration.GetConnectionString("development"))
-                .ConfigureDb(services)
-                .Inject<IEntryModule, EntryModule>();
+            services.ConfigureConnection(Configuration.GetConnectionString("development"));
+            services.Inject<IEntryModule, EntryModule>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
