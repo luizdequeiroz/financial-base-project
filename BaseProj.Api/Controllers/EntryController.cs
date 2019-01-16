@@ -6,6 +6,7 @@ using BaseProj.Core.Utils;
 using BaseProj.Entry;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BaseProj.Api.Controllers
@@ -21,13 +22,24 @@ namespace BaseProj.Api.Controllers
         }
 
         [HttpPost("users/login")]
-        public async Task<Return> Login([FromBody] User user)
+        public async Task<Response> Login([FromBody] User user)
         {
             try
             {
-                if (await entry.UserAutenticatedAsync(user))
-                    return new Success(Suc.SessionValidatedSuccessfully, user.Without("Password"), user.NewToken());
-                else return new Error(Err.SessionNotValidated);
+                if (ModelState.IsValid)
+                {
+                    if (await entry.UserAutenticatedAsync(user))
+                        return new Success(Suc.SessionValidatedSuccessfully, user.Without("Password"), user.NewToken());
+                    else return new Error(Err.SessionNotValidated);
+                }
+                else
+                {
+                    return new Error(Err.InvalidPadding, ModelState.Select(v => new
+                    {
+                        Input = v.Key,
+                        Msgs = v.Value.Errors.Select(e => e.ErrorMessage)
+                    }));
+                }
             }
             catch (Exception ex)
             {

@@ -59,6 +59,9 @@ namespace BaseProj.Api.Treatments.Enums
         MenuItemDoesNotExist = -18,
 
         [Description("Sessão não validada!")]
-        SessionNotValidated = -19
+        SessionNotValidated = -19,
+
+        [Description("Erro interno da operação!")]
+        InternalOperationError = -20
     }
 }
