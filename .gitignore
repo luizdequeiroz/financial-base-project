@@ -1,19 +1,32 @@
 .vs/
-
-
+.vs/BaseProj/v15/Server/sqlite3/storage.ide
 
 BaseProj.Api/bin/
-
 BaseProj.Api/obj/
 
-
-
 BaseProj.Core/bin/
-
 BaseProj.Core/obj/
 
-
-
 BaseProj.Modules/BaseProj.Entry/bin/
-
 BaseProj.Modules/BaseProj.Entry/obj/
+
+.vscode/launch.json
+.vscode/tasks.json
+
+BaseProj.Api/obj/BaseProj.Api.csproj.nuget.g.props
+BaseProj.Api/obj/BaseProj.Api.csproj.nuget.g.targets
+
+BaseProj.Api/obj/project.assets.json
+BaseProj.Api/obj/Debug/netcoreapp2.1/project.razor.json
+
+BaseProj.Core/obj/BaseProj.Core.csproj.nuget.g.props
+BaseProj.Core/obj/BaseProj.Core.csproj.nuget.g.targets
+
+BaseProj.Core/obj/project.assets.json
+BaseProj.Core/obj/Debug/netcoreapp2.1/project.razor.json
+
+BaseProj.Modules/BaseProj.Entry/obj/BaseProj.Entry.csproj.nuget.g.props
+BaseProj.Modules/BaseProj.Entry/obj/BaseProj.Entry.csproj.nuget.g.targets
+
+BaseProj.Modules/BaseProj.Entry/obj/project.assets.json
+BaseProj.Modules/BaseProj.Entry/obj/Debug/netcoreapp2.1/project.razor.json
