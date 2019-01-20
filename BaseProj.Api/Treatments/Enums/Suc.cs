@@ -51,6 +51,12 @@ namespace BaseProj.Api.Treatments.Enums
         UserDeletedSuccessfully = 15,
 
         [Description("Sessão validada com sucesso!")]
-        SessionValidatedSuccessfully = 16
+        SessionValidatedSuccessfully = 16,
+
+        [Description("Usuário atualizado com sucesso!")]
+        UserUpdatedSuccessfully = 17,
+
+        [Description("Um usuário encontrado!")]
+        OneUserFound = 18
     }
 }

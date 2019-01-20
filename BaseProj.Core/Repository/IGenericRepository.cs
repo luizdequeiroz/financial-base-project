@@ -17,10 +17,10 @@ namespace BaseProj.Core.Repository
         Entity Insert(Entity item);
         Task<Entity> InsertAsync(Entity item);
         void Update(Entity item);
-        void UpdateAsync(Entity item);
+        Task UpdateAsync(Entity item);
         void Delete(Entity item);
-        void DeleteAsync(Entity item);
+        Task DeleteAsync(Entity item);
         void Commit();
-        void CommitAsync();
+        Task CommitAsync();
     }
 }

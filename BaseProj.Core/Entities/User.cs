@@ -17,6 +17,7 @@ namespace BaseProj.Core.Entities
 
         public string Password { get; set; }
 
+        [Required(ErrorMessage = "Data de nascimento obrigatória.")]
         public DateTime BirthDate { get; set; }
 
         public DateTime RegisterDate { get; set; }

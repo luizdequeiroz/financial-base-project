@@ -56,7 +56,7 @@ namespace BaseProj.Core.Repository
         public async Task<Entity> InsertAsync(Entity item) 
         {
             await _context.Set<Entity>().AddAsync(item);
-            CommitAsync();
+            await CommitAsync();
             return item;
         }
 
@@ -66,10 +66,10 @@ namespace BaseProj.Core.Repository
             Commit();
         }
 
-        public async void DeleteAsync(Entity item) 
+        public async Task DeleteAsync(Entity item) 
         {
             await Task.Run(() => _context.Set<Entity>().Remove(item));
-            CommitAsync();
+            await CommitAsync();
         }
 
         public void Update(Entity item) 
@@ -78,10 +78,10 @@ namespace BaseProj.Core.Repository
             Commit();
         }
 
-        public async void UpdateAsync(Entity item) 
+        public async Task UpdateAsync(Entity item) 
         {
             await Task.Run(() => _context.Entry(item).State = EntityState.Modified);
-            CommitAsync();
+            await CommitAsync();
         }
 
         public void Commit()
@@ -112,7 +112,7 @@ namespace BaseProj.Core.Repository
             while (saveFailed);
         }
 
-        public async void CommitAsync()
+        public async Task CommitAsync()
         {
             int ret = 0;
             bool saveFailed;

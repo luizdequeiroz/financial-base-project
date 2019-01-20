@@ -62,6 +62,9 @@ namespace BaseProj.Api.Treatments.Enums
         SessionNotValidated = -19,
 
         [Description("Erro interno da operação!")]
-        InternalOperationError = -20
+        InternalOperationError = -20,
+
+        [Description("Usuário(s) não encontrado(s)!")]
+        UserNotFound = -21
     }
 }
