@@ -1,6 +1,0 @@
-C:\Users\1007787\source\repos\BaseProj\BaseProj.Core\bin\Debug\netstandard2.0\BaseProj.Core.deps.json
-C:\Users\1007787\source\repos\BaseProj\BaseProj.Core\bin\Debug\netstandard2.0\BaseProj.Core.dll
-C:\Users\1007787\source\repos\BaseProj\BaseProj.Core\obj\Debug\netstandard2.0\BaseProj.Core.csprojResolveAssemblyReference.cache
-C:\Users\1007787\source\repos\BaseProj\BaseProj.Core\obj\Debug\netstandard2.0\BaseProj.Core.csproj.CoreCompileInputs.cache
-C:\Users\1007787\source\repos\BaseProj\BaseProj.Core\obj\Debug\netstandard2.0\BaseProj.Core.AssemblyInfoInputs.cache
-C:\Users\1007787\source\repos\BaseProj\BaseProj.Core\obj\Debug\netstandard2.0\BaseProj.Core.AssemblyInfo.cs
