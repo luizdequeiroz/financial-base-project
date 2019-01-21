@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BaseProj.Company\BaseProj.Company.csproj" />
+    <ProjectReference Include="..\BaseProj.Modules\BaseProj.Company\BaseProj.Company.csproj" />
     <ProjectReference Include="..\BaseProj.Core\BaseProj.Core.csproj" />
     <ProjectReference Include="..\BaseProj.Modules\BaseProj.Entry\BaseProj.Entry.csproj" />
   </ItemGroup>
