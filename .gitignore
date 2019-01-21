@@ -10,5 +10,8 @@ BaseProj.Core/obj/
 BaseProj.Modules/BaseProj.Entry/bin/
 BaseProj.Modules/BaseProj.Entry/obj/
 
+BaseProj.Modules/BaseProj.Company/bin/
+BaseProj.Modules/BaseProj.Company/obj/
+
 .vscode/launch.json
 .vscode/tasks.json
