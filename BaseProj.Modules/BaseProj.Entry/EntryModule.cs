@@ -1,4 +1,5 @@
 ﻿using BaseProj.Core.Entities;
+using BaseProj.Core.Exceptions;
 using BaseProj.Core.Repository;
 using BaseProj.Core.Utils;
 using System;
@@ -69,7 +70,7 @@ namespace BaseProj.Entry
                 users = (await userRepository.SelectWhereAsync(u => u.Email.ToLower().Contains(value.ToString().ToLower()))).ToArray();
             else if (property == "birthDate")
                 users = (await userRepository.SelectWhereAsync(u => u.BirthDate.Date == (value as string).ToDateTime().Date)).ToArray();
-            else return users;
+            else throw new ArgumentPropertyException(property);
 
             return users;
         }
