@@ -1,5 +1,4 @@
 ﻿using BaseProj.Core.Entities;
-using System;
 using System.Threading.Tasks;
 
 namespace BaseProj.Entry
@@ -16,7 +15,7 @@ namespace BaseProj.Entry
 
         Task<User> UpdateUserAsync(int id, User user);
 
-        Task<User> GetUserByAsync(int id);
+        Task<User> GetUserByIdAsync(int id);
 
         Task<User[]> GetUsersByPropertyAsync(string property, object value);
     }

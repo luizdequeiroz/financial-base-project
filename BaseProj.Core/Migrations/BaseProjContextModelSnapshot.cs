@@ -20,6 +20,47 @@ namespace BaseProj.Core.Migrations
                 .HasAnnotation("ProductVersion", "2.0.2-rtm-10011")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("BaseProj.Core.Entities.Client", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Account");
+
+                    b.Property<string>("Agency");
+
+                    b.Property<string>("Bank");
+
+                    b.Property<string>("BenefitNumber");
+
+                    b.Property<DateTime>("BirthDate");
+
+                    b.Property<string>("CPF");
+
+                    b.Property<string>("CounterCheckPassword");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.Property<string>("Op");
+
+                    b.Property<string>("Phone");
+
+                    b.Property<string>("PortalPassword");
+
+                    b.Property<string>("PortalRegistration");
+
+                    b.Property<string>("RG");
+
+                    b.Property<int>("Type");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clients");
+                });
+
             modelBuilder.Entity("BaseProj.Core.Entities.User", b =>
                 {
                     b.Property<int>("Id")

@@ -1,4 +1,5 @@
 ﻿using BaseProj.Api.Treatments.Enums;
+using BaseProj.Company;
 using BaseProj.Core;
 using BaseProj.Entry;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -110,7 +111,8 @@ namespace BaseProj.Api
             });
 
             services.ConfigureConnection(Configuration.GetConnectionString("development"));
-            services.Inject<IEntryModule, EntryModule>();
+            services.Inject<IEntryModule, EntryModule>()
+                    .Inject<ICompanyModule, CompanyModule>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

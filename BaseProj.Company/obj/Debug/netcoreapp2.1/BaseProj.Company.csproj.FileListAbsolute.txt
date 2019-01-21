@@ -1,0 +1,12 @@
+C:\Users\1007787\source\repos\baseproj\BaseProj.Company\bin\Debug\netcoreapp2.1\BaseProj.Company.deps.json
+C:\Users\1007787\source\repos\baseproj\BaseProj.Company\bin\Debug\netcoreapp2.1\BaseProj.Company.dll
+C:\Users\1007787\source\repos\baseproj\BaseProj.Company\bin\Debug\netcoreapp2.1\BaseProj.Company.pdb
+C:\Users\1007787\source\repos\baseproj\BaseProj.Company\bin\Debug\netcoreapp2.1\BaseProj.Core.dll
+C:\Users\1007787\source\repos\baseproj\BaseProj.Company\bin\Debug\netcoreapp2.1\BaseProj.Core.pdb
+C:\Users\1007787\source\repos\baseproj\BaseProj.Company\obj\Debug\netcoreapp2.1\BaseProj.Company.csprojResolveAssemblyReference.cache
+C:\Users\1007787\source\repos\baseproj\BaseProj.Company\obj\Debug\netcoreapp2.1\BaseProj.Company.csproj.CoreCompileInputs.cache
+C:\Users\1007787\source\repos\baseproj\BaseProj.Company\obj\Debug\netcoreapp2.1\BaseProj.Company.AssemblyInfoInputs.cache
+C:\Users\1007787\source\repos\baseproj\BaseProj.Company\obj\Debug\netcoreapp2.1\BaseProj.Company.AssemblyInfo.cs
+C:\Users\1007787\source\repos\baseproj\BaseProj.Company\obj\Debug\netcoreapp2.1\BaseProj.Company.csproj.CopyComplete
+C:\Users\1007787\source\repos\baseproj\BaseProj.Company\obj\Debug\netcoreapp2.1\BaseProj.Company.dll
+C:\Users\1007787\source\repos\baseproj\BaseProj.Company\obj\Debug\netcoreapp2.1\BaseProj.Company.pdb

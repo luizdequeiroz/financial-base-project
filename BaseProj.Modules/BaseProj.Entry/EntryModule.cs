@@ -2,7 +2,6 @@
 using BaseProj.Core.Exceptions;
 using BaseProj.Core.Repository;
 using BaseProj.Core.Utils;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,7 +14,7 @@ namespace BaseProj.Entry
 
         public EntryModule(IGenericRepository<User> genericRepository)
         {
-            this.userRepository = genericRepository;
+            userRepository = genericRepository;
         }
 
         public async Task<bool> UserAutenticatedAsync(User user)
@@ -48,14 +47,12 @@ namespace BaseProj.Entry
         public async Task<User> UpdateUserAsync(int id, User user)
         {
             var us = await userRepository.SelectByIDAsync(id);
-            us.Name = user.Name;
-            us.Password = user.Password;
-            us.BirthDate = user.BirthDate;
+            user.ApplyProperties(ref us, "Email", "RegisterDate");
             await userRepository.UpdateAsync(us);
             return us;
         }
 
-        public async Task<User> GetUserByAsync(int id)
+        public async Task<User> GetUserByIdAsync(int id)
         {
             var user = await userRepository.SelectByIDAsync(id);
             return user.Without("Password");

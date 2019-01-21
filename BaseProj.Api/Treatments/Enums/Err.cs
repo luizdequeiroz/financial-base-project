@@ -64,7 +64,13 @@ namespace BaseProj.Api.Treatments.Enums
         [Description("Erro interno da operação!")]
         InternalOperationError = -20,
 
-        [Description("Usuário(s) não encontrado(s)!")]
-        UserNotFound = -21
+        [Description("Nenhum usuário foi encontrado!")]
+        UserNotFound = -21,
+
+        [Description("Cliente não existe!")]
+        ClientDoesNotExist = -22,
+
+        [Description("Nenhum cliente foi encontrado!")]
+        ClientNotFound = -23
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace BaseProj.Core.Utils
 {
@@ -25,6 +26,16 @@ namespace BaseProj.Core.Utils
             else if (thirdInteger.ToString().Length > 3)
                 return new DateTime(thirdInteger, secondInteger, firstInteger);
             else return new DateTime().Date;
+        }
+
+        public static void ApplyProperties<T>(this T from, ref T to, params string[] exception)
+        {
+            foreach (var propTo in to.GetType().GetProperties())
+                foreach (var propFrom in from.GetType().GetProperties())
+                    if (propFrom.Name == propTo.Name)
+                        if (propTo.CustomAttributes.Where(ca => ca.AttributeType.Name == "KeyAttribute" || ca.AttributeType.Name == "DatabaseGeneratedAttribute").Count() == 0)
+                            if (!exception.Contains(propFrom.Name))
+                                propTo.SetValue(to, propFrom.GetValue(from));
         }
     }
 }

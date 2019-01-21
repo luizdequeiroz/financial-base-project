@@ -57,6 +57,15 @@ namespace BaseProj.Api.Treatments.Enums
         UserUpdatedSuccessfully = 17,
 
         [Description("Um usuário encontrado!")]
-        OneUserFound = 18
+        OneUserFound = 18,
+
+        [Description("Cliente deletado com sucesso!")]
+        ClientDeletedSuccessfully = 19,
+
+        [Description("Cliente atualizado com sucesso!")]
+        ClientUpdatedSuccessfully = 20,
+
+        [Description("Um cliente encontrado!")]
+        OneClientFound = 21
     }
 }

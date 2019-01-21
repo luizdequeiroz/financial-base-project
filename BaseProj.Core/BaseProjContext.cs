@@ -8,5 +8,7 @@ namespace BaseProj.Core
         public BaseProjContext(DbContextOptions<BaseProjContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Client> Clients { get; set; }
     }
 }

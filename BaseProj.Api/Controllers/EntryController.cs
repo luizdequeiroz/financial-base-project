@@ -15,9 +15,9 @@ namespace BaseProj.Api.Controllers
     {
         private readonly IEntryModule entry;
 
-        public EntryController(IEntryModule entry)
+        public EntryController(IEntryModule entryModule)
         {
-            this.entry = entry;
+            entry = entryModule;
         }
 
         [HttpPost("login")]
@@ -108,7 +108,7 @@ namespace BaseProj.Api.Controllers
         {
             try
             {
-                var user = await entry.GetUserByAsync(id);
+                var user = await entry.GetUserByIdAsync(id);
 
                 if (user != null)
                     return new Success(user);
@@ -121,7 +121,7 @@ namespace BaseProj.Api.Controllers
         }
 
         [HttpGet("properties/{property}/{value}/users")]
-        public async Task<Response> GetUsersByNameAsync(string property, string value)
+        public async Task<Response> GetUsersByPropertyAsync(string property, string value)
         {
             try
             {

@@ -30,6 +30,7 @@ namespace BaseProj.Core
         public static IServiceCollection Inject<TInterface, TImplementation>(this IServiceCollection services) => 
             services.AddDbContext<BaseProjContext>(options => options.UseSqlServer(StartupCore.connectionString))
                     .AddTransient(typeof(TInterface), typeof(TImplementation))
-                    .AddTransient<IGenericRepository<User>, GenericRepository<User>>();
+                    .AddTransient<IGenericRepository<User>, GenericRepository<User>>()
+                    .AddTransient<IGenericRepository<Client>, GenericRepository<Client>>();
     }
 }
