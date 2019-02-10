@@ -9,7 +9,7 @@ namespace BaseProj.Company
 
         Task DeleteClientAsync(int id);
 
-        Task<Client[]> ListAllClientsAsync();
+        Task<Client[]> ListClientsAsync(int quantity);
 
         Task<Client> UpdateClientAsync(int id, Client client);
 

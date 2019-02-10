@@ -38,9 +38,10 @@ namespace BaseProj.Entry
             await userRepository.DeleteAsync(user);
         }
 
-        public async Task<User[]> ListAllUsersAsync()
+        public async Task<User[]> ListUsersAsync(int quantity)
         {
             var users = await userRepository.SelectAllAsync();
+            if (quantity > 0) users = users.OrderByDescending(u => u.Id).Take(quantity);
             return users.Select(u => u.Without("Password")).ToArray();
         }
 

@@ -11,7 +11,7 @@ namespace BaseProj.Entry
 
         Task DeleteUserAsync(int id);
 
-        Task<User[]> ListAllUsersAsync();
+        Task<User[]> ListUsersAsync(int quantity);
 
         Task<User> UpdateUserAsync(int id, User user);
 

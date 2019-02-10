@@ -28,9 +28,10 @@ namespace BaseProj.Company
             await clientRepository.DeleteAsync(client);
         }
 
-        public async Task<Client[]> ListAllClientsAsync()
+        public async Task<Client[]> ListClientsAsync(int quantity)
         {
             var clients = await clientRepository.SelectAllAsync();
+            if (quantity > 0) clients = clients.OrderByDescending(c => c.Id).Take(quantity);
             return clients.ToArray();
         }
 
@@ -51,11 +52,13 @@ namespace BaseProj.Company
         public async Task<Client[]> GetClientsByPropertyAsync(string property, object value)
         {
             var client = new List<Client>().ToArray();
-            if (property == "name")
+            if (property == "id")
+                client = (await clientRepository.SelectWhereAsync(c => c.Id == (int)value)).ToArray();
+            else if (property == "name")
                 client = (await clientRepository.SelectWhereAsync(c => c.Name.ToLower().Contains(value.ToString().ToLower()))).ToArray();
-            else if(property == "rg")
+            else if (property == "rg")
                 client = (await clientRepository.SelectWhereAsync(c => c.RG == value.ToString())).ToArray();
-            else if(property == "cpf")
+            else if (property == "cpf")
                 client = (await clientRepository.SelectWhereAsync(c => c.CPF == value.ToString())).ToArray();
             else if (property == "birthDate")
                 client = (await clientRepository.SelectWhereAsync(c => c.BirthDate.Date == (value as string).ToDateTime().Date)).ToArray();

@@ -18,8 +18,8 @@ namespace BaseProj.Api.Controllers
             company = companyModule;
         }
 
-        [HttpPost("clients")]
-        public async Task<Response> RegisterUserAsync([FromBody] Client client)
+        [HttpPost("client")]
+        public async Task<Response> RegisterClientAsync([FromBody] Client client)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [HttpDelete("clients/{id}/delete")]
+        [HttpDelete("client/{id}/delete")]
         public async Task<Response> DeleteClientAsync(int id)
         {
             try
@@ -50,15 +50,15 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [HttpGet("clients")]
-        public async Task<Response> ListAllClientsAsync()
+        [HttpGet("clients/{quantity?}")]
+        public async Task<Response> ListClientsAsync(int quantity = 0)
         {
             try
             {
-                var clients = await company.ListAllClientsAsync();
+                var clients = await company.ListClientsAsync(quantity);
 
                 if (clients.Length > 0) return new Success(clients);
-                else return new Error(Err.NoClients);
+                else return new Error(Err.NoClients, clients);
             }
             catch (Exception ex)
             {
@@ -66,7 +66,7 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [HttpPut("clients/{id}")]
+        [HttpPut("client/{id}")]
         public async Task<Response> UpdateClientAsync(int id, [FromBody] Client client)
         {
             try
@@ -84,7 +84,7 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [HttpGet("clients/{id}")]
+        [HttpGet("client/{id}")]
         public async Task<Response> GetClientByIdAsync(int id)
         {
             try
@@ -101,23 +101,19 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [HttpGet("properties/{property}/{value}/clients")]
+        [HttpGet("property/{property}/{value}/clients")]
         public async Task<Response> GetClientsByPropertyAsync(string property, string value)
         {
             try
             {
                 var clients = await company.GetClientsByPropertyAsync(property, value);
 
-                if (clients.Length > 0)
-                    if (clients.Length == 1)
-                        return new Success(Suc.OneClientFound, clients[0]);
-                    else return new Success(clients);
+                if (clients.Length > 0) return new Success(clients);
                 else return new Error(Err.ClientNotFound);
             }
             catch (Exception ex)
             {
                 return new Error(ex);
-                throw;
             }
         }
     }

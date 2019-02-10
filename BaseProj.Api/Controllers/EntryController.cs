@@ -6,6 +6,7 @@ using BaseProj.Core.Utils;
 using BaseProj.Entry;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BaseProj.Api.Controllers
@@ -27,7 +28,10 @@ namespace BaseProj.Api.Controllers
             {
                 if (ModelState.IsValid)
                     if (await entry.UserAutenticatedAsync(user))
+                    {
+                        user = (await entry.GetUsersByPropertyAsync("email", user.Email)).FirstOrDefault();
                         return new Success(Suc.SessionValidatedSuccessfully, user.Without("Password"), user.NewToken());
+                    }
                     else return new Error(Err.SessionNotValidated);
                 else return new Error(Err.InvalidPadding, ModelState.GetValidationObject());
             }
@@ -37,7 +41,7 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [HttpPost("users")]
+        [HttpPost("user")]
         public async Task<Response> RegisterUserAsync([FromBody] User user)
         {
             try
@@ -55,7 +59,7 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [HttpDelete("users/{id}/delete")]
+        [HttpDelete("user/{id}/delete")]
         public async Task<Response> DeleteUserAsync(int id)
         {
             try
@@ -69,12 +73,12 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [HttpGet("users")]
-        public async Task<Response> ListAllUsersAsync()
+        [HttpGet("users/{quantity?}")]
+        public async Task<Response> ListUsersAsync(int quantity = 0)
         {
             try
             {
-                var users = await entry.ListAllUsersAsync();
+                var users = await entry.ListUsersAsync(quantity);
 
                 if (users.Length > 0) return new Success(users);
                 else return new Error(Err.NoUsers);
@@ -85,7 +89,7 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [HttpPut("users/{id}")]
+        [HttpPut("user/{id}")]
         public async Task<Response> UpdateUserAsync(int id, [FromBody] User user)
         {
             try
@@ -103,7 +107,7 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [HttpGet("users/{id}")]
+        [HttpGet("user/{id}")]
         public async Task<Response> GetUserByIdAsync(int id)
         {
             try
@@ -120,23 +124,19 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [HttpGet("properties/{property}/{value}/users")]
+        [HttpGet("property/{property}/{value}/users")]
         public async Task<Response> GetUsersByPropertyAsync(string property, string value)
         {
             try
             {
                 var users = await entry.GetUsersByPropertyAsync(property, value);
 
-                if (users.Length > 0)
-                    if (users.Length == 1)
-                        return new Success(Suc.OneUserFound, users[0]);
-                    else return new Success(users);
+                if (users.Length > 0) return new Success(users);
                 else return new Error(Err.UserNotFound);
             }
             catch (Exception ex)
             {
                 return new Error(ex);
-                throw;
             }
         }
     }
