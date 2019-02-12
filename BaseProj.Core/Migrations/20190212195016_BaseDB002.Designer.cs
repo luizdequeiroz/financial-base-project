@@ -11,9 +11,10 @@ using System;
 namespace BaseProj.Core.Migrations
 {
     [DbContext(typeof(BaseProjContext))]
-    partial class BaseProjContextModelSnapshot : ModelSnapshot
+    [Migration("20190212195016_BaseDB002")]
+    partial class BaseDB002
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
