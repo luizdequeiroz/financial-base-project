@@ -13,7 +13,8 @@ namespace BaseProj.Core
         public BaseProjContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<BaseProjContext>();
-            optionsBuilder.UseSqlServer(connectionString);
+            //optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseNpgsql(connectionString);
 
             return new BaseProjContext(optionsBuilder.Options);
         }
@@ -28,7 +29,7 @@ namespace BaseProj.Core
         }
 
         public static IServiceCollection Inject<TInterface, TImplementation>(this IServiceCollection services) => 
-            services.AddDbContext<BaseProjContext>(options => options.UseSqlServer(StartupCore.connectionString))
+            services.AddDbContext<BaseProjContext>(options => options.UseNpgsql(StartupCore.connectionString))
                     .AddTransient(typeof(TInterface), typeof(TImplementation))
                     .AddTransient<IGenericRepository<User>, GenericRepository<User>>()
                     .AddTransient<IGenericRepository<Client>, GenericRepository<Client>>();
