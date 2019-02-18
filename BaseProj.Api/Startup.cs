@@ -67,9 +67,9 @@ namespace BaseProj.Api
                         {
                             Debug.WriteLine($"OnTokenValidated {context.SecurityToken}");
 
-                            if (context.IsPublicMethod(Configuration))
-                                context.Success();
-                            else context.Fail(Err.UserDoesNotHavePermission.ToDescription());
+                            //if (context.IsPublicMethod(Configuration))
+                            //    context.Success();
+                            //else context.Fail(Err.UserDoesNotHavePermission.ToDescription());
 
                             return Task.CompletedTask;
                         }
@@ -109,7 +109,7 @@ namespace BaseProj.Api
 
                 c.IncludeXmlComments(xmlApplicationDocPath);
             });
-            
+
             //services.ConfigureConnection(Configuration.GetConnectionString("development"));
             services.ConfigureConnection(Configuration.GetConnectionString("production"));
 

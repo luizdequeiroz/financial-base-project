@@ -2,12 +2,14 @@
 using BaseProj.Api.Treatments.Enums;
 using BaseProj.Company;
 using BaseProj.Core.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
 namespace BaseProj.Api.Controllers
 {
+    [Authorize("UserAccess")]
     [Route("api/[controller]")]
     public class CompanyController : Controller
     {

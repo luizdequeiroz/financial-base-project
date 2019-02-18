@@ -4,6 +4,7 @@ using BaseProj.Core.Entities;
 using BaseProj.Core.Provider;
 using BaseProj.Core.Utils;
 using BaseProj.Entry;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace BaseProj.Api.Controllers
 {
+    [Authorize("UserAccess")]
     [Route("api/[controller]")]
     public class EntryController : Controller
     {
@@ -21,6 +23,14 @@ namespace BaseProj.Api.Controllers
             entry = entryModule;
         }
 
+        [AllowAnonymous]
+        [HttpGet("~/")]
+        public IActionResult HelloWorld()
+        {
+            return Ok("Hello World, I am CL Promotora system.");
+        }
+
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<Response> LoginAsync([FromBody] User user)
         {
@@ -41,6 +51,7 @@ namespace BaseProj.Api.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpPost("user")]
         public async Task<Response> RegisterUserAsync([FromBody] User user)
         {
@@ -73,6 +84,7 @@ namespace BaseProj.Api.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpGet("users/{quantity?}")]
         public async Task<Response> ListUsersAsync(int quantity = 0)
         {
@@ -107,6 +119,7 @@ namespace BaseProj.Api.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpGet("user/{id}")]
         public async Task<Response> GetUserByIdAsync(int id)
         {
@@ -124,6 +137,7 @@ namespace BaseProj.Api.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpGet("property/{property}/{value}/users")]
         public async Task<Response> GetUsersByPropertyAsync(string property, string value)
         {
