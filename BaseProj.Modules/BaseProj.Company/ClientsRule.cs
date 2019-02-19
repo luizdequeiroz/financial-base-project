@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BaseProj.Company.Interfaces;
 using BaseProj.Core.Entities;
 using BaseProj.Core.Exceptions;
 using BaseProj.Core.Repository;
 using BaseProj.Core.Utils;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BaseProj.Company
 {
-    public class CompanyModule : ICompanyModule
+    public partial class CompanyModule : ICompanyModule
     {
         private readonly IGenericRepository<Client> clientRepository;
 

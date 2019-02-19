@@ -2,13 +2,14 @@
 using BaseProj.Core.Exceptions;
 using BaseProj.Core.Repository;
 using BaseProj.Core.Utils;
+using BaseProj.Entry.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace BaseProj.Entry
 {
-    public class EntryModule : IEntryModule
+    public partial class EntryModule : IEntryModule
     {
         private readonly IGenericRepository<User> userRepository;
 

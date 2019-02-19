@@ -1,9 +1,9 @@
 ﻿using BaseProj.Core.Entities;
 using System.Threading.Tasks;
 
-namespace BaseProj.Company
+namespace BaseProj.Company.Interfaces
 {
-    public interface ICompanyModule
+    public partial interface ICompanyModule
     {
         Task<Client> RegisterClientAsync(Client client);
 

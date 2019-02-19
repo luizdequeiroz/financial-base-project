@@ -1,7 +1,8 @@
-﻿using BaseProj.Api.Treatments.Enums;
-using BaseProj.Company;
+﻿using BaseProj.Company;
+using BaseProj.Company.Interfaces;
 using BaseProj.Core;
 using BaseProj.Entry;
+using BaseProj.Entry.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

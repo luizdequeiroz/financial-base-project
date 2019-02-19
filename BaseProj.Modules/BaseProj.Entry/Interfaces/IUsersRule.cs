@@ -1,9 +1,9 @@
 ﻿using BaseProj.Core.Entities;
 using System.Threading.Tasks;
 
-namespace BaseProj.Entry
+namespace BaseProj.Entry.Interfaces
 {
-    public interface IEntryModule
+    public partial interface IEntryModule
     {
         Task<bool> UserAutenticatedAsync(User user);
 

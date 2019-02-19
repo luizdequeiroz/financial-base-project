@@ -3,7 +3,7 @@ using BaseProj.Api.Treatments.Enums;
 using BaseProj.Core.Entities;
 using BaseProj.Core.Provider;
 using BaseProj.Core.Utils;
-using BaseProj.Entry;
+using BaseProj.Entry.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;

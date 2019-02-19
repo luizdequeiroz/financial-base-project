@@ -1,6 +1,6 @@
 ﻿using BaseProj.Api.Treatments;
 using BaseProj.Api.Treatments.Enums;
-using BaseProj.Company;
+using BaseProj.Company.Interfaces;
 using BaseProj.Core.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
