@@ -16,5 +16,7 @@ namespace BaseProj.Company.Interfaces
         Task<Client> GetClientByIdAsync(int id);
 
         Task<Client[]> GetClientsByPropertyAsync(string property, object value);
+
+        Task<Client[]> RegisterClientsAsync(Client[] clients);
     }
 }

@@ -84,6 +84,20 @@ namespace BaseProj.Core.Repository
             await CommitAsync();
         }
 
+        public IQueryable<Entity> BulkInsert(IQueryable<Entity> items)
+        {
+            _context.Set<Entity>().AddRange(items);
+            Commit();
+            return items;
+        }
+
+        public async Task<IQueryable<Entity>> BulkInsertAsync(IQueryable<Entity> items)
+        {
+            await _context.Set<Entity>().AddRangeAsync(items);
+            await CommitAsync();
+            return items;
+        }
+
         public void Commit()
         {
             int ret = 0;
@@ -143,6 +157,6 @@ namespace BaseProj.Core.Repository
         public void Dispose()
         {
             _context.Dispose();
-        }
+        }        
     }
 }

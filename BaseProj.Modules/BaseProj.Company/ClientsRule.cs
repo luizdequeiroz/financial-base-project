@@ -75,5 +75,11 @@ namespace BaseProj.Company
 
             return client;
         }
+
+        public async Task<Client[]> RegisterClientsAsync(Client[] clients)
+        {
+            var clnts = await clientRepository.BulkInsertAsync(clients.AsQueryable());
+            return clnts.ToArray();
+        }
     }
 }

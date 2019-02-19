@@ -20,6 +20,8 @@ namespace BaseProj.Core.Repository
         Task UpdateAsync(Entity item);
         void Delete(Entity item);
         Task DeleteAsync(Entity item);
+        IQueryable<Entity> BulkInsert(IQueryable<Entity> items);
+        Task<IQueryable<Entity>> BulkInsertAsync(IQueryable<Entity> items);
         void Commit();
         Task CommitAsync();
     }

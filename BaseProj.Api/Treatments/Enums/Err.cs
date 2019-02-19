@@ -71,6 +71,9 @@ namespace BaseProj.Api.Treatments.Enums
         ClientDoesNotExist = -22,
 
         [Description("Nenhum cliente foi encontrado!")]
-        ClientNotFound = -23
+        ClientNotFound = -23,
+
+        [Description("Os clientes não foram cadastrados!")]
+        TheClientsWereNotRegistered = -24
     }
 }

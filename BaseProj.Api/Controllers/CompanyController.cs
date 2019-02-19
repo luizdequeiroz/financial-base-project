@@ -118,5 +118,21 @@ namespace BaseProj.Api.Controllers
                 return new Error(ex);
             }
         }
+
+        [AllowAnonymous] // TODO
+        [HttpPost("import/clients")]
+        public async Task<Response> RegisterClientsFromImportationAsync([FromBody] Client[] clients)
+        {
+            try
+            {
+                Client[] clientsResult = await company.RegisterClientsAsync(clients);
+                if (clientsResult.Length > 0) return new Success(clientsResult);
+                else return new Error(Err.TheClientsWereNotRegistered);
+            }
+            catch (Exception ex)
+            {
+                return new Error(ex);
+            }
+        }
     }
 }
