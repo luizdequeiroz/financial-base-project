@@ -13,13 +13,13 @@ namespace BaseProj.Core.Entities
         public string Phone { get; set; }
         public string Email { get; set; }
         public int Type { get; set; }
-        public string PortalRegistration { get; set; }
+        public string Registration { get; set; }
         public string PortalPassword { get; set; }
         public string BenefitNumber { get; set; }
-        public string Registration { get; set; }
         public string Bank { get; set; }
         public string Agency { get; set; }
         public string Account { get; set; }
         public string Op { get; set; }
+        public string Observation { get; set; }
     }
 }
