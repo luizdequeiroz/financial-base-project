@@ -110,10 +110,8 @@ namespace BaseProj.Api
 
                 c.IncludeXmlComments(xmlApplicationDocPath);
             });
-
-            //services.ConfigureConnection(Configuration.GetConnectionString("development"));
-            services.ConfigureConnection(Configuration.GetConnectionString("production"));
-
+            
+            services.ConfigureConnection(Configuration.GetConnectionString(Configuration.GetSection("env").Value));
             services.Inject<IEntryModule, EntryModule>()
                     .Inject<ICompanyModule, CompanyModule>();
         }
