@@ -13,7 +13,7 @@ namespace BaseProj.Core.Provider
                 Subject = user.Email,
                 Issuer = "security.baseproj.com.br",
                 Audience = "security.baseproj.com.br",
-                ExpiryInMinutes = 5
+                ExpiryInMinutes = 1440
             }
             .AddClaim("UserId", user.Id.ToString())
             .Build();
