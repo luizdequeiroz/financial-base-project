@@ -13,11 +13,13 @@ namespace BaseProj.Api.Controllers
     [Route("api/[controller]")]
     public class CompanyController : Controller
     {
-        private readonly ICompanyModule company;
+        private readonly IClientRule clientRule;
+        private readonly ILoanRule loanRule;
 
-        public CompanyController(ICompanyModule companyModule)
+        public CompanyController(IClientRule clientRule, ILoanRule loanRule)
         {
-            company = companyModule;
+            this.clientRule = clientRule;
+            this.loanRule = loanRule;
         }
 
         [HttpPost("client")]
@@ -27,7 +29,7 @@ namespace BaseProj.Api.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var clientResult = await company.RegisterClientAsync(client);
+                    var clientResult = await clientRule.RegisterClientAsync(client);
                     return new Success(Suc.ClientSuccessfullyRegistered, clientResult);
                 }
                 else return new Error(Err.InvalidPadding, ModelState.GetValidationObject());
@@ -43,7 +45,7 @@ namespace BaseProj.Api.Controllers
         {
             try
             {
-                await company.DeleteClientAsync(id);
+                await clientRule.DeleteClientAsync(id);
                 return new Success(Suc.ClientDeletedSuccessfully);
             }
             catch (Exception ex)
@@ -57,7 +59,7 @@ namespace BaseProj.Api.Controllers
         {
             try
             {
-                var clients = await company.ListClientsAsync(quantity);
+                var clients = await clientRule.ListClientsAsync(quantity);
 
                 if (clients.Length > 0) return new Success(clients);
                 else return new Error(Err.NoClients, clients);
@@ -75,7 +77,7 @@ namespace BaseProj.Api.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var clientResult = await company.UpdateClientAsync(id, client);
+                    var clientResult = await clientRule.UpdateClientAsync(id, client);
                     return new Success(Suc.ClientUpdatedSuccessfully, clientResult);
                 }
                 else return new Error(Err.InvalidPadding, ModelState.GetValidationObject());
@@ -91,7 +93,7 @@ namespace BaseProj.Api.Controllers
         {
             try
             {
-                var client = await company.GetClientByIdAsync(id);
+                var client = await clientRule.GetClientByIdAsync(id);
 
                 if (client != null)
                     return new Success(client);
@@ -108,7 +110,7 @@ namespace BaseProj.Api.Controllers
         {
             try
             {
-                var clients = await company.GetClientsByPropertyAsync(property, value);
+                var clients = await clientRule.GetClientsByPropertyAsync(property, value);
 
                 if (clients.Length > 0) return new Success(clients);
                 else return new Error(Err.ClientNotFound);
@@ -119,15 +121,51 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [AllowAnonymous] // TODO
         [HttpPost("import/clients")]
         public async Task<Response> RegisterClientsFromImportationAsync([FromBody] Client[] clients)
         {
             try
             {
-                Client[] clientsResult = await company.RegisterClientsAsync(clients);
+                Client[] clientsResult = await clientRule.RegisterClientsAsync(clients);
                 if (clientsResult.Length > 0) return new Success(clientsResult);
                 else return new Error(Err.TheClientsWereNotRegistered);
+            }
+            catch (Exception ex)
+            {
+                return new Error(ex);
+            }
+        }
+
+        [AllowAnonymous] // TODO
+        [HttpPost("client/{clientId}/loan")]
+        public async Task<Response> RegisterLoanAsync(int clientId, [FromBody] Loan loan)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    loan.ClientId = clientId;
+                    var loanResult = await loanRule.RegisterLoanAsync(loan);
+                    return new Success(Suc.LoanSuccessfullyRegistered, loanResult);
+                }
+                else return new Error(Err.InvalidPadding, ModelState.GetValidationObject());
+            }
+            catch (Exception ex)
+            {
+                return new Error(ex);
+            }
+        }
+
+        [AllowAnonymous] // TODO
+        [HttpGet("client/{clientId}/loans/{quantity?}")]
+        public async Task<Response> ListLoansByClientAsync(int clientId, int quantity = 0)
+        {
+            try
+            {
+                var loans = await loanRule.ListLoansByClientAsync(clientId, quantity);
+
+                if (loans.Length > 0) return new Success(loans);
+                else return new Error(Err.NoLoansForClient, loans);
             }
             catch (Exception ex)
             {

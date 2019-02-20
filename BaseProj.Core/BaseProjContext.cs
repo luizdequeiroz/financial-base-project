@@ -10,5 +10,7 @@ namespace BaseProj.Core
         public DbSet<User> Users { get; set; }
 
         public DbSet<Client> Clients { get; set; }
+
+        public DbSet<Loan> Loans { get; set; }
     }
 }

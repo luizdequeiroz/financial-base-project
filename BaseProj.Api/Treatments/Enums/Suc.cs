@@ -66,6 +66,9 @@ namespace BaseProj.Api.Treatments.Enums
         ClientUpdatedSuccessfully = 20,
 
         [Description("Um cliente encontrado!")]
-        OneClientFound = 21
+        OneClientFound = 21,
+
+        [Description("Empréstimo registrado com sucesso!")]
+        LoanSuccessfullyRegistered = 22
     }
 }

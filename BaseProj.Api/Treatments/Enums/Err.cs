@@ -74,6 +74,9 @@ namespace BaseProj.Api.Treatments.Enums
         ClientNotFound = -23,
 
         [Description("Os clientes não foram cadastrados!")]
-        TheClientsWereNotRegistered = -24
+        TheClientsWereNotRegistered = -24,
+
+        [Description("Nenhum empréstimo para o cliente!")]
+        NoLoansForClient = -25
     }
 }

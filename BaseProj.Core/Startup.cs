@@ -33,6 +33,7 @@ namespace BaseProj.Core
             //services.AddDbContext<BaseProjContext>(options => options.UseNpgsql(StartupCore.connectionString))
                     .AddTransient(typeof(TInterface), typeof(TImplementation))
                     .AddTransient<IGenericRepository<User>, GenericRepository<User>>()
-                    .AddTransient<IGenericRepository<Client>, GenericRepository<Client>>();
+                    .AddTransient<IGenericRepository<Client>, GenericRepository<Client>>()
+                    .AddTransient<IGenericRepository<Loan>, GenericRepository<Loan>>();
     }
 }
