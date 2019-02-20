@@ -11,11 +11,13 @@ namespace BaseProj.Core.Entities
         public string CPF { get; set; }
         public DateTime BirthDate { get; set; }
         public string Phone { get; set; }
+        public string Cell { get; set; }
         public string Email { get; set; }
-        public int Type { get; set; }
         public string Registration { get; set; }
         public string PortalPassword { get; set; }
+        public int Type { get; set; }
         public string BenefitNumber { get; set; }
+        public string SIAPNumber { get; set; }
         public string Bank { get; set; }
         public string Agency { get; set; }
         public string Account { get; set; }

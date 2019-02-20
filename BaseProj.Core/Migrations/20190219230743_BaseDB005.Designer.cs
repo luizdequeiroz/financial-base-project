@@ -4,14 +4,16 @@ using BaseProj.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BaseProj.Core.Migrations
 {
     [DbContext(typeof(BaseProjContext))]
-    partial class BaseProjContextModelSnapshot : ModelSnapshot
+    [Migration("20190219230743_BaseDB005")]
+    partial class BaseDB005
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,10 +57,6 @@ namespace BaseProj.Core.Migrations
                     b.Property<string>("RG");
 
                     b.Property<string>("Registration");
-
-                    b.Property<string>("SIAPNumber");
-
-                    b.Property<int>("Type");
 
                     b.HasKey("Id");
 
