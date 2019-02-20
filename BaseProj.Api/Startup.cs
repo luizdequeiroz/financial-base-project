@@ -112,8 +112,9 @@ namespace BaseProj.Api
             });
             
             services.ConfigureConnection(Configuration.GetConnectionString(Configuration.GetSection("env").Value));
-            services.Inject<IEntryModule, EntryModule>()
-                    .Inject<ICompanyModule, CompanyModule>();
+            services.Inject<IUserRule, UserRule>()
+                    .Inject<IClientRule, ClientRule>()
+                    .Inject<ILoanRule, LoanRule>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

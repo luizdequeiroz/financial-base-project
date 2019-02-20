@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace BaseProj.Company.Interfaces
 {
-    public partial interface ICompanyModule
+    public interface IClientRule
     {
         Task<Client> RegisterClientAsync(Client client);
 
@@ -17,6 +17,6 @@ namespace BaseProj.Company.Interfaces
 
         Task<Client[]> GetClientsByPropertyAsync(string property, object value);
 
-        Task<Client[]> RegisterClientsAsync(Client[] clients);
+        Task<Client[]> RegisterClientsAsync(Client[] clients);        
     }
 }

@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BaseProj.Core.Entities
 {
     public class Client : GenericEntity
     {
+        public Client()
+        {
+            RegisterDate = DateTime.Now;
+        }
+
         [Required(ErrorMessage = "Nome do cliente é obrigatório.")]
         public string Name { get; set; }
         public string RG { get; set; }
@@ -23,5 +29,6 @@ namespace BaseProj.Core.Entities
         public string Account { get; set; }
         public string Op { get; set; }
         public string Observation { get; set; }
+        public DateTime RegisterDate { get; set; }
     }
 }

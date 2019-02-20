@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace BaseProj.Company
 {
-    public partial class CompanyModule : ICompanyModule
+    public class ClientRule : IClientRule
     {
         private readonly IGenericRepository<Client> clientRepository;
 
-        public CompanyModule(IGenericRepository<Client> genericRepository)
+        public ClientRule(IGenericRepository<Client> genericRepository)
         {
             clientRepository = genericRepository;
         }
@@ -80,6 +80,6 @@ namespace BaseProj.Company
         {
             var clnts = await clientRepository.BulkInsertAsync(clients.AsQueryable());
             return clnts.ToArray();
-        }
+        }        
     }
 }

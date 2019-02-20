@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace BaseProj.Entry.Interfaces
 {
-    public partial interface IEntryModule
+    public interface IUserRule
     {
         Task<bool> UserAutenticatedAsync(User user);
 

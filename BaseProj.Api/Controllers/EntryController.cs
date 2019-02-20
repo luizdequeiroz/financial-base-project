@@ -16,11 +16,11 @@ namespace BaseProj.Api.Controllers
     [Route("api/[controller]")]
     public class EntryController : Controller
     {
-        private readonly IEntryModule entry;
+        private readonly IUserRule userRule;
 
-        public EntryController(IEntryModule entryModule)
+        public EntryController(IUserRule userRule)
         {
-            entry = entryModule;
+            this.userRule = userRule;
         }
 
         [AllowAnonymous]
@@ -37,9 +37,9 @@ namespace BaseProj.Api.Controllers
             try
             {
                 if (ModelState.IsValid)
-                    if (await entry.UserAutenticatedAsync(user))
+                    if (await userRule.UserAutenticatedAsync(user))
                     {
-                        user = (await entry.GetUsersByPropertyAsync("email", user.Email)).FirstOrDefault();
+                        user = (await userRule.GetUsersByPropertyAsync("email", user.Email)).FirstOrDefault();
                         return new Success(Suc.SessionValidatedSuccessfully, user.Without("Password"), user.NewToken());
                     }
                     else return new Error(Err.SessionNotValidated);
@@ -59,7 +59,7 @@ namespace BaseProj.Api.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var userResult = await entry.RegisterUserAsync(user);
+                    var userResult = await userRule.RegisterUserAsync(user);
                     return new Success(Suc.UserSuccessfullyRegistered, userResult);
                 }
                 else return new Error(Err.InvalidPadding, ModelState.GetValidationObject());
@@ -75,7 +75,7 @@ namespace BaseProj.Api.Controllers
         {
             try
             {
-                await entry.DeleteUserAsync(id);
+                await userRule.DeleteUserAsync(id);
                 return new Success(Suc.UserDeletedSuccessfully);
             }
             catch (Exception ex)
@@ -90,7 +90,7 @@ namespace BaseProj.Api.Controllers
         {
             try
             {
-                var users = await entry.ListUsersAsync(quantity);
+                var users = await userRule.ListUsersAsync(quantity);
 
                 if (users.Length > 0) return new Success(users);
                 else return new Error(Err.NoUsers);
@@ -108,7 +108,7 @@ namespace BaseProj.Api.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var userResult = await entry.UpdateUserAsync(id, user);
+                    var userResult = await userRule.UpdateUserAsync(id, user);
                     return new Success(Suc.UserUpdatedSuccessfully, userResult);
                 }
                 else return new Error(Err.InvalidPadding, ModelState.GetValidationObject());
@@ -125,7 +125,7 @@ namespace BaseProj.Api.Controllers
         {
             try
             {
-                var user = await entry.GetUserByIdAsync(id);
+                var user = await userRule.GetUserByIdAsync(id);
 
                 if (user != null)
                     return new Success(user);
@@ -143,7 +143,7 @@ namespace BaseProj.Api.Controllers
         {
             try
             {
-                var users = await entry.GetUsersByPropertyAsync(property, value);
+                var users = await userRule.GetUsersByPropertyAsync(property, value);
 
                 if (users.Length > 0) return new Success(users);
                 else return new Error(Err.UserNotFound);

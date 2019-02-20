@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace BaseProj.Entry
 {
-    public partial class EntryModule : IEntryModule
+    public class UserRule : IUserRule
     {
         private readonly IGenericRepository<User> userRepository;
 
-        public EntryModule(IGenericRepository<User> genericRepository)
+        public UserRule(IGenericRepository<User> genericRepository)
         {
             userRepository = genericRepository;
         }
