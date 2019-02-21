@@ -135,8 +135,7 @@ namespace BaseProj.Api.Controllers
                 return new Error(ex);
             }
         }
-
-        [AllowAnonymous] // TODO
+        
         [HttpPost("client/{clientId}/loan")]
         public async Task<Response> RegisterLoanAsync(int clientId, [FromBody] Loan loan)
         {
@@ -156,7 +155,24 @@ namespace BaseProj.Api.Controllers
             }
         }
 
-        [AllowAnonymous] // TODO
+        [HttpPut("client/loan/{id}")]
+        public async Task<Response> UpdateLoanAsync(int id, [FromBody] Loan loan)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var loanResult = await loanRule.UpdateLoanAsync(id, loan);
+                    return new Success(Suc.LoanUpdatedSuccessfully, loanResult);
+                }
+                else return new Error(Err.InvalidPadding, ModelState.GetValidationObject());
+            }
+            catch (Exception ex)
+            {
+                return new Error(ex);
+            }
+        }
+        
         [HttpGet("client/{clientId}/loans/{quantity?}")]
         public async Task<Response> ListLoansByClientAsync(int clientId, int quantity = 0)
         {
