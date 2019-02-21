@@ -6,6 +6,7 @@ namespace BaseProj.Company.Interfaces
     public interface ILoanRule
     {
         Task<Loan> RegisterLoanAsync(Loan loan);
+        Task<Loan> UpdateLoanAsync(int id, Loan loan);
         Task<Loan[]> ListLoansByClientAsync(int clientId, int quantity);
     }
 }

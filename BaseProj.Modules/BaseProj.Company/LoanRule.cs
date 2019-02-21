@@ -1,6 +1,7 @@
 ﻿using BaseProj.Company.Interfaces;
 using BaseProj.Core.Entities;
 using BaseProj.Core.Repository;
+using BaseProj.Core.Utils;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,6 +19,14 @@ namespace BaseProj.Company
         public async Task<Loan> RegisterLoanAsync(Loan loan)
         {
             return await loanRepository.InsertAsync(loan);
+        }
+
+        public async Task<Loan> UpdateLoanAsync(int id, Loan loan)
+        {
+            var ln = await loanRepository.SelectByIDAsync(id);
+            loan.ApplyProperties(ref ln);
+            await loanRepository.UpdateAsync(ln);
+            return ln;
         }
 
         public async Task<Loan[]> ListLoansByClientAsync(int clientId, int quantity)

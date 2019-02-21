@@ -21,6 +21,7 @@ namespace BaseProj.Core.Entities
         public decimal InstallmentValue { get; set; }
         public decimal TotalPayable { get; set; }
         public int BankId { get; set; }
+        public string Observation { get; set; }
 
         [ForeignKey("Client")]
         public int ClientId { get; set; }
