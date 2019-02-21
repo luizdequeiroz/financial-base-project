@@ -87,6 +87,8 @@ namespace BaseProj.Core.Migrations
 
                     b.Property<int>("Modality");
 
+                    b.Property<string>("Observation");
+
                     b.Property<DateTime>("RegisterDate");
 
                     b.Property<DateTime?>("RequestDate");

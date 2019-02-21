@@ -2,13 +2,13 @@
 
 namespace BaseProj.Core.Migrations
 {
-    public partial class BaseDB004 : Migration
+    public partial class BaseDB002 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
                 name: "Observation",
-                table: "Clients",
+                table: "Loans",
                 nullable: true);
         }
 
@@ -16,7 +16,7 @@ namespace BaseProj.Core.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "Observation",
-                table: "Clients");
+                table: "Loans");
         }
     }
 }
