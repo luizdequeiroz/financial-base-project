@@ -62,7 +62,7 @@ namespace BaseProj.Company
             else if (property == "cpf")
                 client = (await clientRepository.SelectWhereAsync(c => c.CPF == value.ToString())).ToArray();
             else if (property == "birthDate")
-                client = (await clientRepository.SelectWhereAsync(c => c.BirthDate.Date == (value as string).ToDateTime().Date)).ToArray();
+                client = (await clientRepository.SelectWhereAsync(c => c.BirthDate.Value.Date == (value as string).ToDateTime().Date)).ToArray();
             else if (property == "phone")
                 client = (await clientRepository.SelectWhereAsync(c => c.Phone == value.ToString() || c.Cell == value.ToString())).ToArray();
             else if (property == "email")

@@ -68,7 +68,7 @@ namespace BaseProj.Entry
             else if (property == "email")
                 users = (await userRepository.SelectWhereAsync(u => u.Email.ToLower().Contains(value.ToString().ToLower()))).ToArray();
             else if (property == "birthDate")
-                users = (await userRepository.SelectWhereAsync(u => u.BirthDate.Date == (value as string).ToDateTime().Date)).ToArray();
+                users = (await userRepository.SelectWhereAsync(u =>  u.BirthDate.Value.Date == (value as string).ToDateTime().Date)).ToArray();
             else throw new ArgumentPropertyException(property);
 
             return users;
