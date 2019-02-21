@@ -15,7 +15,7 @@ namespace BaseProj.Core.Entities
         public string Name { get; set; }
         public string RG { get; set; }
         public string CPF { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
         public string Phone { get; set; }
         public string Cell { get; set; }
         public string Email { get; set; }

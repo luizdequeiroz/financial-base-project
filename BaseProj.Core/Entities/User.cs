@@ -17,7 +17,7 @@ namespace BaseProj.Core.Entities
 
         public string Password { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public DateTime RegisterDate { get; set; }
     }
