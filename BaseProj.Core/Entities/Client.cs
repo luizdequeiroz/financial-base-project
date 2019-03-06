@@ -22,6 +22,7 @@ namespace BaseProj.Core.Entities
         public string Registration { get; set; }
         public string PortalPassword { get; set; }
         public int Type { get; set; }
+        public decimal Margin { get; set; }
         public string BenefitNumber { get; set; }
         public string SIAPNumber { get; set; }
         public string Bank { get; set; }
