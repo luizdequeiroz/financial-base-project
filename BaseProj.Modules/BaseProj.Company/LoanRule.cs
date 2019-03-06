@@ -2,6 +2,7 @@
 using BaseProj.Core.Entities;
 using BaseProj.Core.Repository;
 using BaseProj.Core.Utils;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,7 +25,10 @@ namespace BaseProj.Company
         public async Task<Loan> UpdateLoanAsync(int id, Loan loan)
         {
             var ln = await loanRepository.SelectByIDAsync(id);
+            var oldState = ln.Status;
             loan.ApplyProperties(ref ln);
+            if (ln.Status != oldState)
+                ln.StatusDate = DateTime.Now;
             await loanRepository.UpdateAsync(ln);
             return ln;
         }

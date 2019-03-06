@@ -4,14 +4,16 @@ using BaseProj.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BaseProj.Core.Migrations
 {
     [DbContext(typeof(BaseProjContext))]
-    partial class BaseProjContextModelSnapshot : ModelSnapshot
+    [Migration("20190222174415_BaseDB006")]
+    partial class BaseDB006
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,8 +42,6 @@ namespace BaseProj.Core.Migrations
                     b.Property<string>("Cell");
 
                     b.Property<string>("Email");
-
-                    b.Property<decimal>("Margin");
 
                     b.Property<string>("Name")
                         .IsRequired();
@@ -79,13 +79,13 @@ namespace BaseProj.Core.Migrations
 
                     b.Property<int>("ClientId");
 
-                    b.Property<decimal?>("DebtorBalance");
+                    b.Property<decimal>("DebtorBalance");
 
-                    b.Property<int?>("DebtorBalanceQtdPart");
+                    b.Property<int>("DebtorBalanceQtdPart");
 
-                    b.Property<int?>("InstallmentAmount");
+                    b.Property<int>("InstallmentAmount");
 
-                    b.Property<decimal?>("InstallmentValue");
+                    b.Property<decimal>("InstallmentValue");
 
                     b.Property<DateTime?>("LoanDate");
 
@@ -103,9 +103,9 @@ namespace BaseProj.Core.Migrations
 
                     b.Property<int>("Status");
 
-                    b.Property<DateTime?>("StatusDate");
+                    b.Property<DateTime>("StatusDate");
 
-                    b.Property<decimal?>("TotalPayable");
+                    b.Property<decimal>("TotalPayable");
 
                     b.HasKey("Id");
 
