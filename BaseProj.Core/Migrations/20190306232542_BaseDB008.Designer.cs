@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaseProj.Core.Migrations
 {
     [DbContext(typeof(BaseProjContext))]
-    [Migration("20190306231941_BaseDB005")]
-    partial class BaseDB005
+    [Migration("20190306232542_BaseDB008")]
+    partial class BaseDB008
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -81,9 +81,13 @@ namespace BaseProj.Core.Migrations
 
                     b.Property<int>("ClientId");
 
-                    b.Property<int>("InstallmentAmount");
+                    b.Property<decimal?>("DebtorBalance");
 
-                    b.Property<decimal>("InstallmentValue");
+                    b.Property<int?>("DebtorBalanceQtdPart");
+
+                    b.Property<int?>("InstallmentAmount");
+
+                    b.Property<decimal?>("InstallmentValue");
 
                     b.Property<DateTime?>("LoanDate");
 
@@ -93,15 +97,17 @@ namespace BaseProj.Core.Migrations
 
                     b.Property<string>("Observation");
 
+                    b.Property<DateTime?>("PaymentDate");
+
                     b.Property<DateTime>("RegisterDate");
 
                     b.Property<DateTime?>("RequestDate");
 
                     b.Property<int>("Status");
 
-                    b.Property<DateTime>("StatusDate");
+                    b.Property<DateTime?>("StatusDate");
 
-                    b.Property<decimal>("TotalPayable");
+                    b.Property<decimal?>("TotalPayable");
 
                     b.HasKey("Id");
 
