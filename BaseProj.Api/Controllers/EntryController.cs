@@ -27,7 +27,7 @@ namespace BaseProj.Api.Controllers
         [HttpGet("~/")]
         public IActionResult HelloWorld()
         {
-            return Ok("Hello World, I am CL Promotora system.");
+            return Ok("Hello World");
         }
 
         [AllowAnonymous]

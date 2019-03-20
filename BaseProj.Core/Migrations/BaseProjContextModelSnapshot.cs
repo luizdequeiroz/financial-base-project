@@ -71,49 +71,6 @@ namespace BaseProj.Core.Migrations
                     b.ToTable("Clients");
                 });
 
-            modelBuilder.Entity("BaseProj.Core.Entities.Loan", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BankId");
-
-                    b.Property<int>("ClientId");
-
-                    b.Property<decimal?>("DebtorBalance");
-
-                    b.Property<int?>("DebtorBalanceQtdPart");
-
-                    b.Property<int?>("InstallmentAmount");
-
-                    b.Property<decimal?>("InstallmentValue");
-
-                    b.Property<DateTime?>("LoanDate");
-
-                    b.Property<decimal>("LoanValue");
-
-                    b.Property<int>("Modality");
-
-                    b.Property<string>("Observation");
-
-                    b.Property<DateTime?>("PaymentDate");
-
-                    b.Property<DateTime>("RegisterDate");
-
-                    b.Property<DateTime?>("RequestDate");
-
-                    b.Property<int>("Status");
-
-                    b.Property<DateTime?>("StatusDate");
-
-                    b.Property<decimal?>("TotalPayable");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Loans");
-                });
-
             modelBuilder.Entity("BaseProj.Core.Entities.User", b =>
                 {
                     b.Property<int>("Id")

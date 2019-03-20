@@ -9,7 +9,7 @@ namespace BaseProj.Core.Provider
         {           
             var token = new TokenBuilder
             {
-                SecurityKey = SecurityKey.Create("lllc.baseproj.dotnetcore"),
+                SecurityKey = SecurityKey.Create("luiz.baseproj.dotnetcore"),
                 Subject = user.Email,
                 Issuer = "security.baseproj.com.br",
                 Audience = "security.baseproj.com.br",

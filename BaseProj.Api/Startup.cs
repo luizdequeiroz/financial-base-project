@@ -53,7 +53,7 @@ namespace BaseProj.Api
 
                         ValidIssuer = "security.baseproj.com.br",
                         ValidAudience = "security.baseproj.com.br",
-                        IssuerSigningKey = SecurityKeyFromCore.Create("lllc.baseproj.dotnetcore")
+                        IssuerSigningKey = SecurityKeyFromCore.Create("luiz.baseproj.dotnetcore")
                     };
 
                     option.Events = new JwtBearerEvents
@@ -94,7 +94,7 @@ namespace BaseProj.Api
                     new Info
                     {
                         Title = "BaseProj API",
-                        Version = "1.0.0.0",
+                        Version = "1.1.7",
                         Description = "Serviço de sistema BaseProj em formato API REST ASP.NET Core.",
                         Contact = new Contact
                         {
@@ -113,8 +113,7 @@ namespace BaseProj.Api
             
             services.ConfigureConnection(Configuration.GetConnectionString(Configuration.GetSection("env").Value));
             services.Inject<IUserRule, UserRule>()
-                    .Inject<IClientRule, ClientRule>()
-                    .Inject<ILoanRule, LoanRule>();
+                    .Inject<IClientRule, ClientRule>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

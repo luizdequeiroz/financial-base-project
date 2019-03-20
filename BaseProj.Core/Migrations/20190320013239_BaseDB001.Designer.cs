@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaseProj.Core.Migrations
 {
     [DbContext(typeof(BaseProjContext))]
-    [Migration("20190306234515_BaseDB008")]
-    partial class BaseDB008
+    [Migration("20190320013239_BaseDB001")]
+    partial class BaseDB001
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,6 +45,8 @@ namespace BaseProj.Core.Migrations
 
                     b.Property<decimal>("Margin");
 
+                    b.Property<DateTime?>("MarginDate");
+
                     b.Property<string>("Name")
                         .IsRequired();
 
@@ -69,49 +71,6 @@ namespace BaseProj.Core.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clients");
-                });
-
-            modelBuilder.Entity("BaseProj.Core.Entities.Loan", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BankId");
-
-                    b.Property<int>("ClientId");
-
-                    b.Property<decimal?>("DebtorBalance");
-
-                    b.Property<int?>("DebtorBalanceQtdPart");
-
-                    b.Property<int?>("InstallmentAmount");
-
-                    b.Property<decimal?>("InstallmentValue");
-
-                    b.Property<DateTime?>("LoanDate");
-
-                    b.Property<decimal>("LoanValue");
-
-                    b.Property<int>("Modality");
-
-                    b.Property<string>("Observation");
-
-                    b.Property<DateTime?>("PaymentDate");
-
-                    b.Property<DateTime>("RegisterDate");
-
-                    b.Property<DateTime?>("RequestDate");
-
-                    b.Property<int>("Status");
-
-                    b.Property<DateTime?>("StatusDate");
-
-                    b.Property<decimal?>("TotalPayable");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Loans");
                 });
 
             modelBuilder.Entity("BaseProj.Core.Entities.User", b =>
